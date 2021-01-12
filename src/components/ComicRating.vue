@@ -43,20 +43,15 @@ export default {
   },
   mounted() {
     this.getlastComic();
-    // console.log("mounted");
   },
   methods: {
     getlastComic() {
-      // console.log("ENTROOOO");
       this.isLoading = true;
       Service.getLastComic()
         .then(response => {
           this.isLoading = false;
           this.comic = response.data;
-          // console.log("comic", this.comic, this.isLoading);
           this.lastComicId = response.data.num;
-          // console.log("lastComicId", this.lastComicId);
-          // console.log("response", response.data.num);
           this.currentComicId = response.data.num;
           const ratingObj = this.getRatingObject();
           this.rating = ratingObj[`comic_${response.data.num}`];
