@@ -26,6 +26,6 @@
 <script>
 export default {
   name: "Comic",
-  props: ["comic", "currentComicId", "getComicById", "lastComicId"],
+  props: ["comic", "currentComicId", "getComicById", "lastComicId"]
 };
 </script>

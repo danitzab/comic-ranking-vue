@@ -50,7 +50,7 @@ export default {
       // console.log("ENTROOOO");
       this.isLoading = true;
       Service.getLastComic()
-        .then((response) => {
+        .then(response => {
           this.isLoading = false;
           this.comic = response.data;
           // console.log("comic", this.comic, this.isLoading);
@@ -61,19 +61,19 @@ export default {
           const ratingObj = this.getRatingObject();
           this.rating = ratingObj[`comic_${response.data.num}`];
         })
-        .catch((err) => console.log(err));
+        .catch(err => console.log(err));
     },
     getComicById(id) {
       this.isLoading = true;
       Service.getComicById(id)
-        .then((response) => {
+        .then(response => {
           this.isLoading = false;
           this.comic = response.data;
           this.currentComicId = response.data.num;
           const ratingObj = this.getRatingObject();
           this.rating = ratingObj[`comic_${response.data.num}`];
         })
-        .catch((err) => console.log(err));
+        .catch(err => console.log(err));
     },
     saveRating(value) {
       this.rating = value;
@@ -83,13 +83,13 @@ export default {
         LOCAL_STORAGE_KEY,
         JSON.stringify({
           ...ratingObj,
-          [`comic_${this.currentComicId}`]: value,
+          [`comic_${this.currentComicId}`]: value
         })
       );
     },
     getRatingObject() {
       return JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY));
-    },
-  },
+    }
+  }
 };
 </script>
